@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script>
+            let worker = new Worker("./worker.js");
+            let offscreenCanvas = document.getElementById('canvas').transferControlToOffscreen();
+            worker.postMessage({offscreenCanvas},[offscreenCanvas]);
+            // 即使弹出框阻塞主线程也不会影响动画
+            // setTimeout(()=>alert('a'),1000);
+        </script>
+    </body>
+</html>

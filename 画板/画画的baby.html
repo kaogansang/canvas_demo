@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画画的baby</title>
+    <style>
+        #canvas{
+            transition: border 1s;
+            position: relative;
+            border: 30px solid #225d68ec;
+            display: inline-block;
+        }
+        #canvas:hover{
+            border: 30px solid #189fb1;
+        }
+        .myPoint{
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: black;
+        }
+        #line-tools {
+            transition: border 1s;
+            /* width: 400px; */
+            height: 800px;
+            float:left;
+            margin: 0 20px;
+            border:30px solid rgba(146, 177, 149, 0.753);
+            
+        }
+        #line-tools:hover{
+            border:30px solid #22be8fc0;
+            }
+    </style>
+</head>
+<body >
+    <h4>画画的baby，开始你的表演！</h4>
+    <canvas id="canvas" width="1400" height="800" >都啥年代了还用这破浏览器？麻溜去换个！</canvas>
+    <div id="line-tools">
+        <form action="">
+            <br>
+            线宽：
+            <input type="text" id="line-width">
+            <br>
+            <br>
+            颜色：
+            <input type="text" id="line-color">
+        </form>
+        <br>
+        <button id="save-btn">一点永留存</button>
+    </div>
+    <script src="JS.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" style="border:2px solid red; display:block; margin:auto;"> </canvas>
+    
+    <script>
+        //七巧板对象
+        var tangram = [
+            {point:[{x:0,y:0},{x:800,y:0},{x:400,y:400}],style:'#caff67'},
+            {point:[{x:0,y:0},{x:400,y:400},{x:0,y:800}],style:'#67becf'},
+            {point:[{x:800,y:0},{x:800,y:400},{x:600,y:600},{x:600,y:200}],style:'#ef3d61'},
+            {point:[{x:600,y:200},{x:600,y:600},{x:400,y:400}],style:'#f9f51a'},
+            {point:[{x:400,y:400},{x:600,y:600},{x:400,y:800},{x:200,y:600}],style:'#a594c0'},
+            {point:[{x:200,y:600},{x:400,y:800},{x:0,y:800}],style:'#fa8ecc'},
+            {point:[{x:800,y:400},{x:800,y:800},{x:400,y:800}],style:'#f6ca29'},
+        ]
+        //画函数
+        var draw = function(block,cxt){
+            cxt.beginPath();            
+            cxt.moveTo(block.point[0].x  ,  block.point[0].y);
+            for(let i=1;i<block.point.length;i++){
+                cxt.lineTo(block.point[i].x  ,  block.point[i].y)
+            }
+            cxt.closePath();
+            
+            cxt.fillStyle = block.style;
+            cxt.fill();
+            
+            cxt.strokeStyle = 'black';
+            cxt.lineWidth = 5;
+            cxt.stroke();
+            
+        }
+        
+        
+        window.onload = () => {
+            var canvas = document.getElementById("canvas");
+            var context = canvas.getContext("2d");
+
+            canvas.width = 800;
+            canvas.height = 800;
+
+            tangram.forEach(element => {
+                draw(element,context);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <canvas id="canvas"></canvas>
+</body>
+<script>
+  let canvas = document.getElementById('canvas')
+  let context = canvas.getContext('2d')
+  canvas.width = 1300
+  canvas.height = 700
+  canvas.style.border = "3px solid #666"
+
+  context.lineWidth = 2
+  context.strokeStyle = "#345678"
+  for (let i = 0; i < 10; i++) {
+    context.beginPath()
+    // 画圆：CanvasRenderingContext2D.arc(圆心x，y，半径，开始角度，结束角度，顺逆方向)
+    // 开始结束角度是确定的，不随顺逆方向改变，最后一个值默认false顺时针，值为true逆时针
+    context.arc(i * 130 + 5, 100, 40, 0, (i + 1) * 0.2 * Math.PI)
+    // closePath()会闭合图形
+    context.closePath()
+    context.stroke()
+  }
+  context.strokeStyle = "#2fa050"
+  for (let i = 0; i < 10; i++) {
+  }
+  context.strokeStyle = "#2fa050"
+  for (let i = 0; i < 10; i++) {
+    context.beginPath()
+    context.arc(i * 130 , 300, 40, 0, (i + 1) * 0.2 * Math.PI,true)
+    context.stroke()
+  }
+  context.strokeStyle = "#2fa050"
+  for (let i = 0; i < 10; i++) {
+    context.beginPath()
+    context.arc(i * 130 , 400, 41, 0, (i + 1) * 0.2 * Math.PI)
+    context.fillStyle = "#345678"
+    // closePath()对应fill()没有用，fill()本就会闭合图形并填充
+    context.fill();
+
+    context.beginPath()
+    context.arc(i * 130 , 400, 40, 0, (i + 1) * 0.2 * Math.PI,true)
+    context.stroke()
+  }
+</script>
+
+</html>
