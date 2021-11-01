@@ -1,37 +1,20 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/kaogansang/canvas_demo/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# canvas_demo
+canvas样例
 
-### Markdown
+在学习过程中见到一些有趣的canvas样例，自己实现一下，效果请点击链接
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+👇
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/kaogansang/canvas_demo/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+在线演示
+- [泡泡龙](https://kaogansang.github.io/canvas_demo/泡泡龙)
+  >将一张纯色图片使用泡泡勾勒
+- [时钟动画](https://kaogansang.github.io/canvas_demo/时钟动画)
+  >表示时间的数字每一秒变成小球掉落
+- [点线漂浮](https://kaogansang.github.io/canvas_demo/点线漂浮)
+  >点漂浮，接近的点之间会出现一条线
+- [画板](https://kaogansang.github.io/canvas_demo/画板)
+  >简易画板
+- [离屏canvas配合WebWorker](https://kaogansang.github.io/canvas_demo/离线canvas+worker)
+  >使用OffscreenCanvas接口，将canvas离屏后传递到worker中操纵，减轻主线程压力
