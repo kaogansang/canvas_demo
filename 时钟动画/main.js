@@ -15,11 +15,16 @@ window.onload = function () {
     canvas.height = CANVAS_HEIGHT;
     //刷新动画帧
     setInterval(() => {
-      let nowDate = new Date
-      update(nowDate, context)
-      drawTime(nowDate.getHours(), nowDate.getMinutes(), nowDate.getSeconds(), context)
-      lastDate = nowDate
-    }, 16.7)
+        let nowDate = new Date();
+        update(nowDate, context);
+        drawTime(
+            nowDate.getHours(),
+            nowDate.getMinutes(),
+            nowDate.getSeconds(),
+            context
+        );
+        lastDate = nowDate;
+    }, 16.7);
 };
 
 var update = function (nowDate, context) {
