@@ -1,9 +1,7 @@
-
-
 # canvas_demo
 canvas样例
 
-在学习过程中见到一些有趣的canvas样例，自己实现一下，效果请点击链接
+在学习过程中实现了一些有趣的canvas样例，效果请点击链接
 
 👇
 
@@ -18,3 +16,7 @@ canvas样例
   >简易画板
 - [离屏canvas配合WebWorker](https://kaogansang.github.io/canvas_demo/离线canvas+worker)
   >使用OffscreenCanvas接口，将canvas离屏后传递到worker中操纵，减轻主线程压力
+- [字符画图](https://kaogansang.github.io/canvas_demo/字符画图)
+  >使用通过字符的密度来代替颜色，将图片用字符绘制
+- [抽奖转盘](https://kaogansang.github.io/canvas_demo/抽奖转盘)
+  >搏一搏，单车变摩托
