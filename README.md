@@ -20,3 +20,7 @@ canvas样例
   >使用通过字符的密度来代替颜色，将图片用字符绘制
 - [抽奖转盘](https://kaogansang.github.io/canvas_demo/抽奖转盘)
   >搏一搏，单车变摩托
+- [粒子文字](https://kaogansang.github.io/canvas_demo/粒子文字)
+  >学习粒子运动（代码是下一个），实现粒子文字，主要难点是要想到将足够多的点随机放到图形的某个位置，整体上来看就能绘制出目标图形
+- [粒子运动](https://kaogansang.github.io/canvas_demo/粒子运动)
+  >复制自codepen的一个canvas 3D 动画，不得不说代码正是通俗易懂🐂🍺！
