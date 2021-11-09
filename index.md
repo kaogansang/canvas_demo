@@ -26,3 +26,5 @@ canvas样例
   >复制自codepen的一个canvas 3D 动画，不得不说代码正是通俗易懂🐂🍺！
 - [贪吃蛇](https://kaogansang.github.io/canvas_demo/贪吃蛇)
   >有点丑的贪吃蛇
+- [五子棋](https://kaogansang.github.io/canvas_demo/五子棋)
+  >五子棋小游戏
