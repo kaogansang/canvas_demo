@@ -14,14 +14,7 @@ window.onload = function () {
     canvas.width = CANVAS_WIDTH;
     canvas.height = CANVAS_HEIGHT;
     //刷新动画帧
-    // setInterval(() => {
-    //   let nowDate = new Date
-    //   update(nowDate, context)
-    //   drawTime(nowDate.getHours(), nowDate.getMinutes(), nowDate.getSeconds(), context)
-    //   lastDate = nowDate
-    // }, 16.7)
-    window.requestAnimationFrame(() => {
-        console.log("object");
+    setInterval(() => {
         let nowDate = new Date();
         update(nowDate, context);
         drawTime(
@@ -31,7 +24,7 @@ window.onload = function () {
             context
         );
         lastDate = nowDate;
-    });
+    }, 16.7);
 };
 
 var update = function (nowDate, context) {
