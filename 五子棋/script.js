@@ -96,6 +96,7 @@ class Pieces {
         //添加阴影
         ctx.shadowOffsetX = 4;
         ctx.shadowOffsetY = 2;
+        ctx.shadowBlur = 5;
         ctx.shadowColor = 'rgba(75,71,71,0.68)';
         //添加渐变色模拟光效
         let gradient = ctx.createRadialGradient(x - Pieces.R * .8, y - Pieces.R * .3, 1, x, y, Pieces.R);
@@ -114,6 +115,21 @@ class Pieces {
         ctx.fill();
         ctx.restore();
     }
+
+    win() {
+        //计算圆心位置
+        let x = this.x * UNIT_WIDTH;
+        let y = this.y * UNIT_WIDTH;
+
+        ctx.save();
+        ctx.strokeStyle = 'red';
+        ctx.lineWidth = 3;
+
+        ctx.beginPath();
+        ctx.arc(x, y, Pieces.R, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.restore();
+    }
 }
 
 //检查胜利
@@ -121,33 +137,43 @@ function testWin(curPie) {
     let {x, y} = curPie;
     let color = curPie.isBlack;
 
-    //计算各个方向的同色棋子个数
-    //  ——
-    let lr = recursion(x, y, -1, 0) + recursion(x, y, 1, 0) + 1;
-    //  |
-    let tb = recursion(x, y, 0, -1) + recursion(x, y, 0, 1) + 1;
-    //  \
-    let ltrb = recursion(x, y, -1, -1) + recursion(x, y, 1, 1) + 1;
-    //  /
-    let lbrt = recursion(x, y, -1, 1) + recursion(x, y, 1, -1) + 1;
+    let map = [[1, 0], [0, 1], [1, 1], [-1, 1]];
+    for (let i = 0; i < map.length; i++) {
+        let [offx, offy] = map[i];
+        let count = recursion(x, y, offx, offy) + recursion(x, y, -offx, -offy) + 1;
+        if (count >= 5) {
+            curPie.win();
+            drawWin(x, y, offx, offy);
+            drawWin(x, y, -offx, -offy);
 
+            setTimeout(()=>{
+                alert(`${color ? '黑' : '白'}方胜利！`);
 
-    //胜利
-    if (Math.max(lr, tb, ltrb, lbrt) >= 5) {
-        alert(`${color ? '黑' : '白'}方胜利！`);
-
-        //清除画布
-        ctx.clearRect(0, 0, CHECKERBOARD_WIDTH, CHECKERBOARD_WIDTH);
-        //清除棋子
-        piecesList = Array.from({length: 15}).map(_ => []);
-        //重新绘制棋盘
-        drawCheckerboard();
+                //清除画布
+                ctx.clearRect(0, 0, CHECKERBOARD_WIDTH, CHECKERBOARD_WIDTH);
+                //清除棋子
+                piecesList = Array.from({length: 15}).map(_ => []);
+                //重新绘制棋盘
+                drawCheckerboard();
+            },10);
+        }
     }
 
     //递归查找该方向对应颜色棋子个数
     function recursion(x, y, offx, offy) {
-        if (piecesList[x + offx][y + offy] && piecesList[x + offx][y + offy].isBlack === color) {
-            return 1 + recursion(x + offx, y + offy, offx, offy)
+        let cur = piecesList[x + offx][y + offy];
+        if (cur && cur.isBlack === color) {
+            return 1 + recursion(x + offx, y + offy, offx, offy);
+        }
+        return 0;
+    }
+
+    //递归显示胜利,将连续的棋子用红色圈出
+    function drawWin(x, y, offx, offy) {
+        let cur = piecesList[x + offx][y + offy];
+        if (cur && cur.isBlack === color) {
+            cur.win();
+            drawWin(x + offx, y + offy, offx, offy);
         }
         return 0;
     }
